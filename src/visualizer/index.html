@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronSight Driving Range</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <!-- Stats overlay -->
+    <div id="stats-overlay">
+        <div class="stat-row">
+            <span class="stat-label">Club Speed</span>
+            <span class="stat-value" id="stat-club-speed">—</span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">Ball Speed</span>
+            <span class="stat-value" id="stat-ball-speed">—</span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">Launch Angle</span>
+            <span class="stat-value" id="stat-launch">—</span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">Spin Rate</span>
+            <span class="stat-value" id="stat-spin">—</span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">Carry</span>
+            <span class="stat-value" id="stat-carry">—</span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">Total</span>
+            <span class="stat-value" id="stat-total">—</span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">Apex</span>
+            <span class="stat-value" id="stat-apex">—</span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">Lateral</span>
+            <span class="stat-value" id="stat-lateral">—</span>
+        </div>
+    </div>
+
+    <!-- Shot shape -->
+    <div id="shot-shape"></div>
+
+    <!-- Club info -->
+    <div id="club-info">Ready</div>
+
+    <script src="lib/three.min.js"></script>
+    <script src="driving-range.js"></script>
+    <script src="trajectory.js"></script>
+    <script src="api.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "_source": "PGA Tour averages from Trackman data, used for physics validation",
+  "_note": "Our model targets amateur speeds (lower than PGA), so we use scaled-down test cases",
+  "pga_tour": {
+    "Driver":  {"club_speed_mph": 113, "ball_speed_mph": 167, "launch_deg": 10.9, "spin_rpm": 2686, "carry_yards": 275},
+    "3-Wood":  {"club_speed_mph": 107, "ball_speed_mph": 158, "launch_deg": 9.2,  "spin_rpm": 3655, "carry_yards": 243},
+    "5-Iron":  {"club_speed_mph": 94,  "ball_speed_mph": 134, "launch_deg": 14.1, "spin_rpm": 5361, "carry_yards": 200},
+    "6-Iron":  {"club_speed_mph": 92,  "ball_speed_mph": 127, "launch_deg": 14.5, "spin_rpm": 6231, "carry_yards": 188},
+    "7-Iron":  {"club_speed_mph": 90,  "ball_speed_mph": 120, "launch_deg": 16.3, "spin_rpm": 7097, "carry_yards": 172},
+    "8-Iron":  {"club_speed_mph": 87,  "ball_speed_mph": 115, "launch_deg": 18.1, "spin_rpm": 7998, "carry_yards": 160},
+    "9-Iron":  {"club_speed_mph": 85,  "ball_speed_mph": 109, "launch_deg": 20.4, "spin_rpm": 8647, "carry_yards": 148},
+    "PW":      {"club_speed_mph": 83,  "ball_speed_mph": 102, "launch_deg": 24.2, "spin_rpm": 9304, "carry_yards": 136}
+  },
+  "amateur_average": {
+    "Driver":  {"club_speed_mph": 93,  "carry_yards": 220},
+    "7-Iron":  {"club_speed_mph": 76,  "carry_yards": 140},
+    "PW":      {"club_speed_mph": 67,  "carry_yards": 100}
+  }
+}

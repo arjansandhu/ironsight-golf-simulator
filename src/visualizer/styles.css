@@ -1,0 +1,101 @@
+/* IronSight Driving Range Visualization Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background: #1a1a2e;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #e0e0e0;
+}
+
+#canvas-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Stats overlay - top right */
+#stats-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(76, 175, 80, 0.4);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    line-height: 1.6;
+    min-width: 200px;
+    backdrop-filter: blur(10px);
+    display: none;
+}
+
+#stats-overlay.visible {
+    display: block;
+}
+
+#stats-overlay .stat-label {
+    color: #999;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#stats-overlay .stat-value {
+    color: #4CAF50;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+#stats-overlay .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 2px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#stats-overlay .stat-row:last-child {
+    border-bottom: none;
+}
+
+/* Shot shape indicator */
+#shot-shape {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #4CAF50;
+    display: none;
+    backdrop-filter: blur(10px);
+}
+
+#shot-shape.visible {
+    display: block;
+}
+
+/* Club info */
+#club-info {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #aaa;
+    backdrop-filter: blur(10px);
+}
+
+/* Distance markers in 3D scene are rendered via Three.js sprites */
