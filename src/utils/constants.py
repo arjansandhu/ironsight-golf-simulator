@@ -14,9 +14,10 @@ import math
 OPTISHOT_VID = 0x0547          # USB Vendor ID
 OPTISHOT_PID = 0x3294          # USB Product ID
 
-# Sensor layout: 16 IR sensors in front row, 16 in back row = 32 total
-# Sensors operate at 48 MHz, firing at 10,000 pulses/second
-NUM_SENSORS_PER_ROW = 16
+# Sensor layout: The hardware has 16 physical IR LEDs per row, but the USB
+# protocol exposes 8 sensors per row as single-byte bitmasks (8 bits each).
+# Two rows: front (toward target) and back (toward golfer).
+NUM_SENSORS_PER_ROW = 8        # 8 bits per bitmask in USB protocol
 NUM_SENSOR_ROWS = 2            # front and back
 TOTAL_SENSORS = NUM_SENSORS_PER_ROW * NUM_SENSOR_ROWS
 
@@ -32,7 +33,7 @@ SUBPACKETS_PER_REPORT = HID_PACKET_SIZE // HID_SUBPACKET_SIZE  # 12
 # Sub-packet signature bytes (byte index 2 within each 5-byte sub-packet)
 SIGNATURE_BACK_SENSOR = 0x81   # Back sensor row data
 SIGNATURE_FRONT_SENSOR = 0x4A  # Front sensor row data
-SIGNATURE_CONTINUED = 0x52     # Continued motion data
+SIGNATURE_CONTINUED = 0x52     # Additional back sensor reading
 
 # OptiShot control commands (sent to device)
 CMD_ENABLE_SENSORS = 0x50      # Enable sensor scanning

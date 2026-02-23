@@ -26,34 +26,34 @@ The OptiShot 2 pad communicates over USB and **did have a macOS version** of its
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│              IronSight Golf Simulator (PyQt6)              │
-│                                                            │
-│  ┌──────────────┐  ┌──────────────┐  ┌────────────────┐  │
-│  │  USB Module   │  │ Camera Module│  │  Viz Module     │  │
-│  │  (hidapi /    │  │ (OpenCV)     │  │  (Three.js      │  │
-│  │   libusb)     │  │              │  │   driving range) │  │
-│  └──────┬───────┘  └──────┬───────┘  └──────┬─────────┘  │
-│         │                  │                  │            │
-│  ┌──────▼──────────────────▼──────────────────▼──────────┐│
-│  │              Event Bus / Shot Dispatcher                ││
-│  │  - Detects swing from USB data                         ││
-│  │  - Triggers video clip extraction                      ││
-│  │  - Computes ball flight from club data                 ││
-│  │  - Sends shot to visualizer                            ││
-│  └────────────────────────┬───────────────────────────────┘│
-│                           │                                │
-│  ┌────────────────────────▼───────────────────────────────┐│
-│  │              Data / Session Storage                     ││
-│  │  SQLite: shots, sessions, video paths, AI feedback     ││
-│  └────────────────────────┬───────────────────────────────┘│
-│                           │                                │
-│  ┌────────────────────────▼───────────────────────────────┐│
-│  │         AI Swing Coach (Phase 6)                        ││
-│  │  Claude API: video frames + shot data → coaching tips   ││
-│  │  - Per-shot feedback (swing video + club data)          ││
-│  │  - Session-level pattern analysis                       ││
-│  │  - Trend tracking across sessions                       ││
-│  └────────────────────────────────────────────────────────┘│
+│              IronSight Golf Simulator (PyQt6)            │
+│                                                          │
+│  ┌──────────────┐  ┌──────────────┐  ┌─────────────────┐ │
+│  │  USB Module  │  │ Camera Module│  │  Viz Module     │ │
+│  │  (hidapi /   │  │ (OpenCV)     │  │  (Three.js      │ │
+│  │   libusb)    │  │              │  │   driving range)│ │
+│  └──────┬───────┘  └──────┬───────┘  └──────┬──────────┘ │
+│         │                  │                  │          │
+│  ┌──────▼──────────────────▼──────────────────▼─────────┐│
+│  │              Event Bus / Shot Dispatcher             ││
+│  │  - Detects swing from USB data                       ││
+│  │  - Triggers video clip extraction                    ││
+│  │  - Computes ball flight from club data               ││
+│  │  - Sends shot to visualizer                          ││
+│  └────────────────────────┬─────────────────────────────┘│
+│                           │                              │
+│  ┌────────────────────────▼─────────────────────────────┐│
+│  │              Data / Session Storage                  ││
+│  │  SQLite: shots, sessions, video paths, AI feedback   ││
+│  └────────────────────────┬─────────────────────────────┘│
+│                           │                              │
+│  ┌────────────────────────▼─────────────────────────────┐│
+│  │         AI Swing Coach (Phase 6)                     ││
+│  │  Claude API: video frames + shot data → coaching tips││
+│  │  - Per-shot feedback (swing video + club data)       ││
+│  │  - Session-level pattern analysis                    ││
+│  │  - Trend tracking across sessions                    ││
+│  └──────────────────────────────────────────────────────┘│
 └──────────────────────────────────────────────────────────┘
 ```
 
@@ -122,22 +122,22 @@ This is the fastest path to a good-looking, interactive 3D driving range on Mac:
 
 ```
 ┌─────────────────────────────────────────┐
-│           PyQt6 Main Window              │
-│                                          │
-│  ┌────────────────┐  ┌────────────────┐  │
-│  │ QWebEngineView │  │ Video Player   │  │
-│  │ (Three.js      │  │ (OpenCV +      │  │
-│  │  driving range) │  │  QLabel)       │  │
-│  │                │  │                │  │
-│  │ - 3D ground    │  │ - Live preview │  │
-│  │ - Trajectory   │  │ - Swing replay │  │
-│  │ - Targets      │  │ - Slow-mo      │  │
-│  │ - Dispersion   │  │ - Draw tools   │  │
-│  └────────────────┘  └────────────────┘  │
-│                                          │
-│  ┌──────────────────────────────────────┐│
-│  │  Shot Data + Session History          ││
-│  └──────────────────────────────────────┘│
+│           PyQt6 Main Window             │
+│                                         │
+│  ┌────────────────┐  ┌────────────────┐ │
+│  │ QWebEngineView │  │ Video Player   │ │
+│  │ (Three.js      │  │ (OpenCV +      │ │
+│  │  driving range)│  │  QLabel)       │ │
+│  │                │  │                │ │
+│  │ - 3D ground    │  │ - Live preview │ │
+│  │ - Trajectory   │  │ - Swing replay │ │
+│  │ - Targets      │  │ - Slow-mo      │ │
+│  │ - Dispersion   │  │ - Draw tools   │ │
+│  └────────────────┘  └────────────────┘ │
+│                                         │
+│  ┌─────────────────────────────────────┐│
+│  │  Shot Data + Session History        ││
+│  └─────────────────────────────────────┘│
 └─────────────────────────────────────────┘
 ```
 
@@ -378,15 +378,15 @@ window.addShot = function (data) {
 │                        │                         │
 │   3D Ball Flight View  │   Swing Video Player    │
 │   (QOpenGLWidget)      │   (QVideoWidget or      │
-│                        │    OpenCV display)       │
+│                        │    OpenCV display)      │
 │                        │                         │
 ├────────────────────────┴─────────────────────────┤
 │  Shot Data Panel                                 │
 │  Club Speed: 95mph | Ball Speed: 140mph |        │
-│  Launch: 14.3° | Spin: 3250rpm | Carry: 245yd   │
+│  Launch: 14.3° | Spin: 3250rpm | Carry: 245yd    │
 ├──────────────────────────────────────────────────┤
-│  Session History (scrollable list of shots)       │
-│  #1: Driver 253yd | #2: 7-iron 165yd | ...      │
+│  Session History (scrollable list of shots)      │
+│  #1: Driver 253yd | #2: 7-iron 165yd | ...       │
 └──────────────────────────────────────────────────┘
 ```
 
